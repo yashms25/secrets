@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-//level 2 encryption
-const encrypt = require("mongoose-encryption");
+//level 2 authentication
+// const encrypt = require("mongoose-encryption");
 
 const UserSchema = new Schema({
   email: {
@@ -16,10 +16,10 @@ const UserSchema = new Schema({
 });
 
 //level 2 authentication
-UserSchema.plugin(encrypt, {
-  secret: process.env.SECRET,
-  encryptedFields: ["password"],
-});
+// UserSchema.plugin(encrypt, {
+//   secret: process.env.SECRET,
+//   encryptedFields: ["password"],
+// });
 
 const Users = mongoose.model("users", UserSchema);
 module.exports = Users;
